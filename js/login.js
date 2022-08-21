@@ -1,5 +1,5 @@
 function irasitio(){
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 }
 
 document.getElementById("Entrada").addEventListener("click", function(validacion){
