@@ -15,4 +15,6 @@ document.getElementById("Entrada").addEventListener("click", function(validacion
         irasitio();
         validacion.preventDefault();
     }
+    localStorage.setItem("usuario", mail)
+
 })
