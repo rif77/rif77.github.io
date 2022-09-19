@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
             currentProductsList = resultObj.data
             showProductsList()
-            console.log(currentProductsList)
         }
     }
 )}
@@ -110,4 +109,9 @@ if (condicion === "sortDesc")
 }
 
 showProductsList();
+}
+
+function setProductID(id){
+    localStorage.setItem("productID",id)
+    window.location = "product-info.html"
 }
