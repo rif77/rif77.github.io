@@ -39,6 +39,8 @@ function estrellas(rating){
     for (var i = rating; i >= 1; i--)
     output.push('<i class="fa fa-star" style="color: gold; text-shadow: 0 0 3px #000;"></i>&nbsp;');
 
+    if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
     for (let i = (5 - rating); i >= 1; i--)
     output.push('<i class="fa fa-star" style="color: white; text-shadow: 0 0 3px #000;"></i>&nbsp;');
 
