@@ -189,3 +189,19 @@ a.custom-card:hover {
   color: orange;
 }
 
+
+.carousel .carousel-item {
+  height: 700px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit:cover;
+    top: 0;
+    left: 0;
+    min-height: 50%;
+}
+
+.click {
+  cursor: pointer
+}

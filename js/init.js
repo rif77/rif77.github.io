@@ -45,10 +45,21 @@ document.addEventListener("DOMContentLoaded",function(){
     let user = localStorage.getItem('usuario');
     
     htmlContentToAppend += 
-    `<li class="nav-item">
-     <a class="nav-link active">`+ user + `</a>
-     </li>`;
+    `<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    ${user}
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
+    <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+    <li><a class="dropdown-item" href="index.html" onclick="cerrar_sesion()">Cerrar Sesión</a></li>
+  </ul>
+</div>`;
     
     document.getElementById("barra").innerHTML += htmlContentToAppend; 
   }
   )
+
+  function cerrar_sesion(){
+    localStorage.clear()
+  }

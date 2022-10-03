@@ -17,19 +17,39 @@ function showProduct (){
     <p><b>Cantidad de vendidos </b></p>
     <p>${productInfo.soldCount}</p>
     <p><b>Imagenes Ilustrativas</b></p>
+
+    <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner" id="carrusel">
+             </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+            </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+            </button>
+    </div>
     `
 
-    for (let i = 0; i < productInfo.images.length; i++) {
-        htmlContentToAppend += `
-        <div class="row overflow-hidden rounded mb-4">
-            <div class="col-3">
-                <img src="${(productInfo.images[i])}" class="img-thumbnail">
-            </div>
+    let imagestoappend = "";
+
+    imagestoappend +=
+    `<div class="carousel-item active">
+    <img src="${(productInfo.images[0])}" class="d-block w-100">
+    </div>
+    `
+
+    for (let i = 1; i < productInfo.images.length; i++) {
+    imagestoappend += `
+        <div class="carousel-item">
+        <img src="${(productInfo.images[i])}" class="d-block w-100">
         </div>
-        ` 
+        `
     }
 
     document.getElementById("product-info.container").innerHTML += htmlContentToAppend;
+    document.getElementById("carrusel").innerHTML += imagestoappend
 }
 
 function estrellas(rating){
@@ -51,6 +71,10 @@ function estrellas(rating){
 function showComments() {
     let comentariostoappend = "";
     
+    comentariostoappend +=`
+    <h2 class="mt-5"><b>Comentarios</b></h2>
+    `
+
     for(let i = 0; i < productComments.length; i++){
             comentariostoappend += `
             <div class ="list-group-item">
@@ -75,7 +99,7 @@ async function cajadecomentarios(){
     let cajacomentarios = ""
 
     cajacomentarios +=`
-    <h1>Comentar</h1>
+    <h2 class="mt-5"><b>Comentar</b></h1>
       <label for="comentario"> Tu comentario:</label>
       <br>
       <textarea id="comentario" name="comment" class="d-flex w-50 justify-content-between"></textarea>
@@ -86,7 +110,7 @@ async function cajadecomentarios(){
             <option value="Default">1</option>
             <option value="malo">2</option>
             <option value="decente">3</option>
-            <option value="bueno">4</option>
+         <option value="bueno">4</option>
             <option value="perfecto">5</option>
         </select>
       <br>
@@ -98,11 +122,34 @@ async function cajadecomentarios(){
 }
 
 
+function mostrarproductosrelacionados(productos){
+    let productostoappend = "";
+
+    for (let relacionados of productos) {
+    productostoappend +=`
+        <div class="row" onclick="MostrarNuevoProducto(${relacionados.id})">
+            <div class="col-3">
+                <img src="${relacionados.image}" class="img-thumbnail" style="cursor:pointer">
+                <p>${relacionados.name}</p>
+            </div>
+        </div>
+     `
+    }
+
+    document.getElementById("productos-relacionados").innerHTML +=productostoappend
+}
+
+function MostrarNuevoProducto(id){
+    localStorage.setItem("productID",id)
+    window.location = "product-info.html"
+}
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             productInfo = resultObj.data
             showProduct()
+            mostrarproductosrelacionados(productInfo.relatedProducts)
         }
     }
 )
