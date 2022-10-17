@@ -16,5 +16,6 @@ document.getElementById("Entrada").addEventListener("click", function(validacion
         validacion.preventDefault();
     }
     localStorage.setItem("usuario", mail)
+    localStorage.setItem("userID", "25801")
 
 })
