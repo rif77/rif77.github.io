@@ -61,5 +61,5 @@ document.addEventListener("DOMContentLoaded",function(){
   )
 
   function cerrar_sesion(){
-    localStorage.clear()
+    localStorage.removeItem("usuario")
   }

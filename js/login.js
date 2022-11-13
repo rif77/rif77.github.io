@@ -15,7 +15,7 @@ document.getElementById("Entrada").addEventListener("click", function(validacion
         irasitio();
         validacion.preventDefault();
     }
-    localStorage.setItem("usuario", mail)
-    localStorage.setItem("userID", "25801")
+    localStorage.setItem("usuario", mail);
+    localStorage.setItem("userID", "25801");
 
 })
