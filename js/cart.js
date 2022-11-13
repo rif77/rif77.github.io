@@ -165,8 +165,8 @@ function configuracionesdeenvio(){
                         </div>
                     </div>
                     <div class="col-sm-6 mt-2" id="Vencimiento">
-                        <label class="form-label" for="vigenciaCredito"> Vencimiento (DD/MM/AAAA) </label>
-                        <input class="form-control" type="date" id="vigenciaCredito" required>
+                        <label class="form-label" for="vigenciaCredito"> Vencimiento (MM/AAAA) </label>
+                        <input class="form-control" type="month" id="vigenciaCredito" required>
                         <div class="invalid-feedback">
                         Debe completar este campo.
                         </div>
