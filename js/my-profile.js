@@ -1,20 +1,37 @@
 document.addEventListener("DOMContentLoaded", function(e){
-            miperfil();
-            verificarperfil();
-            })
+  datosperfil();        
+  miperfil();
+  verificarperfil();
+})
 ;
 
-let PrimerNombre = localStorage.getItem("PrimerNombre");
-let SegundoNombre = localStorage.getItem("SegundoNombre");
-let PrimerApellido = localStorage.getItem("PrimerApellido");
-let SegundoApellido = localStorage.getItem("SegundoApellido");
-let Email = localStorage.getItem("usuario");
-let Telefono = localStorage.getItem("Telefono");
-
+function datosperfil(){
+  if(localStorage.getItem("PrimerNombre") === null){
+    let PrimerNombre = localStorage.setItem("PrimerNombre"," ");
+  }
+  if(localStorage.getItem("SegundoNombre") === null){
+    let PrimerNombre = localStorage.setItem("SegundoNombre"," ");
+  }  if(localStorage.getItem("PrimerApellido") === null){
+    let PrimerNombre = localStorage.setItem("PrimerApellido"," ");
+  }  if(localStorage.getItem("SegundoApellido") === null){
+    let PrimerNombre = localStorage.setItem("SegundoApellido"," ");
+  }  if(localStorage.getItem("Telefono") === null){
+    let PrimerNombre = localStorage.setItem("Telefono"," ");
+  }
+    let Email = localStorage.getItem("usuario");
+}
 
 
 function miperfil(){
     let perfiltoAppend = ""
+   
+    let PrimerNombre = localStorage.getItem("PrimerNombre");
+    let SegundoNombre = localStorage.getItem("SegundoNombre");
+    let PrimerApellido = localStorage.getItem("PrimerApellido");
+    let SegundoApellido = localStorage.getItem("SegundoApellido");
+    let Email = localStorage.getItem("usuario");
+    let Telefono = localStorage.getItem("Telefono");
+    
 
     if(localStorage.getItem("usuario") === null){
 
